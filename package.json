@@ -2,8 +2,9 @@
   "name": "testpilot",
   "displayName": "TestPilot",
   "publisher": "RohanKumarPandey",
-  "description": "Testpilot is a vscode extension which gives test cases automatically for your smart contract. It uses open ai to generate results",
-  "version": "0.0.1",
+  "icon": "./media/testpilot.png",
+  "description": "Testpilot is a Visual Studio Code extension that automatically generates test cases for your smart contracts. Powered by OpenAI, it provides test results for Solidity contracts and supports various testing frameworks such as Mocha, Ganache, Jest, and more.",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.96.0"
   },
