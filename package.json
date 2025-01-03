@@ -1,0 +1,77 @@
+{
+  "name": "testpilot",
+  "displayName": "TestPilot",
+  "publisher": "RohanKumarPandey",
+  "description": "Testpilot is a vscode extension which gives test cases automatically for your smart contract. It uses open ai to generate results",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.96.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "Test Pilot Configurations",
+      "properties": {
+          "myExtension.apiKey": {
+              "type": "string",
+              "default": "",
+              "description": "Enter your openAI's API key"
+          },
+          "myExtension.baseUrl": {
+              "type": "string",
+              "default": "",
+              "description": "Enter the base URL"
+          }
+      }
+  },
+   
+    "commands": [
+      {
+        "command": "testpilot.run",
+        "title": "Testpilot: Generate tests"
+      },
+      {
+        "command": "testpilot.change-credentials",
+        "title": "Testpilot: Update api-key & base-url"
+      },
+      {
+        "command": "testpilot.delete-credentials",
+        "title": "Testpilot: Delete api-key and base-url"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.96.0",
+    "@typescript-eslint/eslint-plugin": "^8.17.0",
+    "@typescript-eslint/parser": "^8.17.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
+    "eslint": "^9.16.0",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.7.2",
+    "webpack": "^5.95.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "openai": "^4.77.0"
+  }
+}
